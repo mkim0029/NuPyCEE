@@ -1,0 +1,4 @@
+H Enhanced MRD (6×) + Enhanced NSM (6×) (weighted combination of yields)
+H Weight 1: 0.50, Weight 2: 0.50
+H Metallicities columns carry identical yields (assumed metallicity independence).
+&Isotopes  &Z=0.0001  &Z=0.0005  &Z=0.001  &Z=0.002
