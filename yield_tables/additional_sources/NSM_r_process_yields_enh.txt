@@ -1,3 +1,0 @@
-H Rosswog et al. (2014) NSM yields (6× enhanced) yields converted for JINAPyCEE (scaled by 6.0×)
-H Metallicities columns carry identical yields (assumed metallicity independence).
-&Isotopes  &Z=0.0001  &Z=0.0005  &Z=0.001  &Z=0.002
