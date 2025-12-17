@@ -1,3 +1,47 @@
+# ASTR501 Final Project — Fornax Chemical Evolution Trend
+
+This repository addition contains the analysis and figures for the ASTR501 final project (Fornax chemical evolution).  This README summarizes what is new to the NuPyCEE repo for this project, points to the main analysis notebook, and lists each figure produced with short assessor notes.
+
+**New Items Added**
+- **Notebook**: Fornax Chemical Evolution Trend.ipynb — main analysis notebook performing galactic chemical evolution experiments and generating figures. See [Fornax Chemical Evolution Trend.ipynb](Fornax%20Chemical%20Evolution%20Trend.ipynb)
+- **Figures folder**: figures/ — contains PDF outputs produced by the notebook. See [figures](figures)
+- **Observations**: observations/ — contains the processed observational catalog used (Reichert et al. 2020 CSV). See [observations](observations)
+- **Extra yields**: yield_tables/additional_sources/ — contains MRD-SNe yield files (e.g., L0.75.dat). See [yield_tables/additional_sources](yield_tables/additional_sources)
+
+**How to reproduce**
+1. Ensure the `NuPyCEE` package and Python dependencies are available (numpy, pandas, matplotlib). The notebook expects the local package structure so run it from the repository root.
+2. Open the notebook [Fornax Chemical Evolution Trend.ipynb](Fornax%20Chemical%20Evolution%20Trend.ipynb) and execute cells in order (or `Run All`). The notebook creates the figures saved into `figures/`.
+
+**Figures produced by the notebook**
+
+**Fornax Grid (figures/fornax_grid.pdf)**
+- Notebook: [Fornax Chemical Evolution Trend.ipynb](Fornax%20Chemical%20Evolution%20Trend.ipynb)
+- File: [figures/fornax_grid.pdf](figures/fornax_grid.pdf)
+- Description: Multi-panel grid plotting elemental abundance trends (elements include Mg, Sc, Ti, Cr, Mn, Ni, Y, Ba, Eu) vs [Fe/H]. The notebook overlays four model predictions on observational data from Letarte et al. (2010), Lemasle et al. (2014) and Reichert et al. (2020).
+- Models plotted (labels used in the legend):
+  - `r-process: NSM` (baseline, `o_1`)
+  - `r-process: NSM + MRD-SNe` (`o_2`)
+  - `r-process: NSM + extra MRD-SNe` (`o_ext`)
+  - `r-process: extra NSM + MRD-SNe` (`o_3`)
+- Assessor note: Compare model trajectories to the three observational datasets. The figure is intended to show how prompt MRD-SNe and delayed NSM channels affect element-specific trends.
+
+**Fornax 2x2 (figures/fornax_2x2.pdf)**
+- Notebook: [Fornax Chemical Evolution Trend.ipynb](Fornax%20Chemical%20Evolution%20Trend.ipynb)
+- File: [figures/fornax_2x2.pdf](figures/fornax_2x2.pdf)
+- Description: 2×2 panel of key abundance ratios vs [Fe/H]:
+  - Top-left: `[Mg/Fe]` vs `[Fe/H]`
+  - Top-right: `[Ba/Mg]` vs `[Fe/H]` (computed as `[Ba/Fe] - [Mg/Fe]`)
+  - Bottom-left: `[Ba/Eu]` vs `[Fe/H]` (computed as `[Ba/Fe] - [Eu/Fe]`)
+  - Bottom-right: `[Eu/Mg]` vs `[Fe/H]` (computed as `[Eu/Fe] - [Mg/Fe]`)
+- Models plotted: same set as in the grid (o_1, o_2, o_ext, o_3).
+- Assessor note: These ratios are chosen to highlight the relative timing and channels of r-process enrichment (prompt vs delayed). Pay attention to interpolation behaviour used when model x-grids differ — the notebook interpolates one model onto another's x-grid for ratio computations.
+
+**Notes on inputs and provenance**
+- Observations: the processed Reichert et al. (2020) Fornax Eu catalog is `observations/reichert2020_for.csv`. The notebook will raise an error if the file is missing and provides the script to regenerate it.
+- Yields: NSM yields from Rosswog et al. (2014) and MRD-SNe yields (e.g., `L0.75.dat`) are read from `yield_tables/` and `yield_tables/additional_sources/` respectively. These are used to manually inject r-process mass in model runs.
+----------------
+### Original README file for NuPyCEE
+
 [![Build Status](https://travis-ci.org/NuGrid/NuPyCEE.svg?branch=master)](https://travis-ci.org/NuGrid/NuPyCEE) [![DOI](https://zenodo.org/badge/51356355.svg)](https://zenodo.org/badge/latestdoi/51356355)
 
 NuPyCEE
